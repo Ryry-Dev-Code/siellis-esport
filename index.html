@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Siellis eSport - Hub Officiel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRE DE NAVIGATION -->
+    <header>
+        <div class="logo-container">
+            <img src="https://cdn.discordapp.com/attachments/1493200846932938878/1523320895857492188/Photoroom_20260425_194018.jpg?ex=6a4baea3&is=6a4a5d23&hm=66d98557a79729e85740b6dc256b98771b3de7a9b366326f0a4f5ae5ac987307&" alt="Logo Siellis eSport" class="site-logo">
+            <span class="logo-text">Siellis eSport</span>
+        </div>
+        <nav>
+            <div class="nav-links">
+                <button class="nav-btn active" data-tab="accueil">Accueil</button>
+                <button class="nav-btn" data-tab="equipes">Équipes</button>
+                <button class="nav-btn" data-tab="tournois">Tournois</button>
+                <button class="nav-btn" data-tab="boutique">Boutique</button>
+                <button class="nav-btn" data-tab="dons">Soutenir</button>
+                <button class="nav-btn admin-nav" data-tab="admin">🔑 Admin</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENEUR PRINCIPAL -->
+    <main class="main-container">
+
+        <!-- Onglet 1 : ACCUEIL -->
+        <section id="accueil" class="tab-content active">
+            <div class="announcement-banner">
+                <span class="announcement-tag">ALERTE</span>
+                <p id="live-announcement">Bienvenue sur le nouveau site officiel de Siellis eSport ! Restez à l'écoute.</p>
+            </div>
+
+            <div class="hero-content">
+                <h1>Siellis Web</h1>
+                <p>Le hub officiel de Siellis eSport. Compétitions, produits et communauté.</p>
+                <div class="hero-btns">
+                    <button class="btn btn-pro-main" onclick="switchTab('tournois')">Voir le Calendrier</button>
+                    <button class="btn btn-pro-sub" onclick="switchTab('equipes')">Les Équipes</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Onglet 2 : ÉQUIPES -->
+        <section id="equipes" class="tab-content">
+            <h2>Nos Rosters</h2>
+            <p class="section-subtitle">Les joueurs officiels de la structure Siellis eSport.</p>
+            <div class="grid-container">
+                <div class="card team-card">
+                    <div class="card-header">
+                        <h3>Siellis E-Sport 💥</h3>
+                        <span class="division-tag">Équipe Pro</span>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>★ SLS | Sipro (Capitaine)</li>
+                            <li>SLS | Toki</li>
+                            <li>SLS | Nonoxx</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Onglet 3 : TOURNOIS -->
+        <section id="tournois" class="tab-content">
+            <h2>Calendrier des Compétitions 🏆</h2>
+            <p class="section-subtitle">Suivez nos événements mensuels et accédez directement aux fiches Matcherino.</p>
+            <div class="calendar-filter">
+                <span id="calendar-current-date">Juillet 2026</span>
+            </div>
+            <div class="calendar-container" id="calendar-grid"></div>
+        </section>
+
+        <!-- Onglet 4 : BOUTIQUE -->
+        <section id="boutique" class="tab-content">
+            <h2>Boutique Merch Officielle 👕</h2>
+            <p class="section-subtitle">Portez fièrement les couleurs de la structure Siellis.</p>
+            <div class="grid-container">
+                <div class="card product-card">
+                    <div class="product-img">👕</div>
+                    <h3>Sweat à Capuche</h3>
+                    <p class="price">44,99 €</p>
+                    <button class="btn-buy">Acheter</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Onglet 5 : DONS -->
+        <section id="dons" class="tab-content">
+            <h2>Soutenir la Structure 🎁</h2>
+            <p class="section-subtitle">Aidez-nous à financer nos serveurs et le cashprize des tournois.</p>
+            <div class="info-box donation-box">
+                <div class="donation-details">
+                    <h3>Contribuer via PayPal</h3>
+                    <p>Chaque don aide directement au développement de Siellis eSport.</p>
+                </div>
+                <a href="https://paypal.me" target="_blank" class="btn btn-paypal">Faire un Don</a>
+            </div>
+        </section>
+
+        <!-- Onglet 6 : ADMIN -->
+        <section id="admin" class="tab-content">
+            <h2>Panneau d'Administration 🔑</h2>
+            <p class="section-subtitle">Zone réservée aux gérants de Siellis eSport (MDP: siellis2026).</p>
+            <div id="admin-auth" class="admin-box">
+                <h3>Connexion Sécurisée</h3>
+                <input type="password" id="admin-password" placeholder="Entrez le mot de passe">
+                <button class="btn btn-pro-main" id="btn-login">Se connecter</button>
+            </div>
+            <div id="admin-dashboard" class="admin-box hidden">
+                <h3>Tableau de Bord</h3>
+                <div class="admin-section">
+                    <h4>📢 Modifier la mini-annonce d'accueil</h4>
+                    <input type="text" id="input-announcement">
+                    <button class="btn btn-pro-main" id="btn-save-announcement">Mettre à jour</button>
+                </div>
+                <hr style="border: 1px solid var(--color-border); margin:20px 0;">
+                <div class="admin-section">
+                    <h4>📅 Ajouter un Matcherino au Calendrier</h4>
+                    <input type="number" id="event-day" placeholder="Jour (Ex: 12)" min="1" max="31">
+                    <input type="text" id="event-title" placeholder="Nom du tournoi">
+                    <input type="text" id="event-link" placeholder="Lien Matcherino (https://...)">
+                    <button class="btn btn-gold" id="btn-add-event" style="width:100%;">Planifier</button>
+                    <button class="btn btn-pro-sub" id="btn-clear-calendar" style="width:100%; margin-top:10px;">Vider le calendrier</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Siellis eSport - Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
